@@ -25,4 +25,15 @@ describe('tdraw', function() {
     expect(tdraw(el, String, state).state).to.be.eql(state)
   })
 
+  it('should default state if not set', function() {
+    expect(tdraw({}, String).state).to.be.eql({})
+  })
+
+  it('should accept raw node or once selection', function() {
+    var el = {}
+      , o = { node: function(){ return el } }
+    
+    expect(tdraw(o, String)).to.be.eql(o)
+    expect(tdraw(o.node(), String)).to.be.eql(el)
+  })
 })
