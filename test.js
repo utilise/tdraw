@@ -10,7 +10,7 @@ describe('tdraw', function() {
 
   it('should add and invoke draw function', function() {
     var el = { state: { foo: 'bar' } }
-      , fn = function(n, d){ result = [n, d] }
+      , fn = function(d){ result = [this, d] }
       , result
 
     expect(tdraw(el, fn).draw).to.be.a('function')
